@@ -195,19 +195,20 @@
 					t.value = t.value + "\n!Matrix"
 			}
 			function PalleteMatrixSet(){
-				m = document.Palette.m_m.selectedIndex;
+				m = document.Palette.m_m.selectedIndex
 				str = "パレットマトリクスをセットします。"
 				switch(m){
 				case 0:default:
 					flag = confirm(str+"\n現在の全パレット情報は失われますがよろしいですか？");break
 				case 1:
-					flag = confirm(str+"\n現在表示しているパレットと置き換えますがよろしいですか？");break;
+					flag = confirm(str+"\n現在使用しているパレットと置き換えますがよろしいですか？");break;
 				case 2:
 					flag = confirm(str+"\n現在のパレット情報に追加しますがよろしいですか？");break
 				}
-					if(!flag) return
+					if (!flag) return
 				PaletteSet()
-				if(30 > s.length){ s.size = s.length}else{s.size=30};
+				if(s.length < 30){ s.size = s.length}else{s.size=30}
+				if(DynamicColor) PaletteListSetColor()
 			}
 			function PalleteMatrixHelp(){
 				alert("★PALETTE MATRIX\nパレットマトリクスとはパレット情報を列挙したテキストを用いる事により\n自由なパレット設定を使用する事が出来ます。\n\n□マトリクスの取得\n1)「取得」ボタンよりパレットマトリクスを取得します。\n2)取得された情報が下のテキストエリアに出ます、これを全てコピーします。\n3)このマトリクス情報をテキストとしてファイルに保存しておくなりしましょう。\n\n□マトリクスのセット\n1）コピーしたマトリクスを下のテキストエリアに貼り付け(ペースト)します。\n2)ファイルに保存してある場合は、それをコピーし貼り付けます。\n3)「セット」ボタンを押せば保存されたパレットが使用できます。\n\n余分な情報があるとパレットが正しくセットされませんのでご注意下さい。");
@@ -218,7 +219,7 @@
 				s = d.select;
 				m = d.m_m.selectedIndex;
 				l = se.length
-				if(1>l){
+				if(l<1){
 					alert("マトリクス情報がありません。");return
 				}
 					n = 0;o = 0;e = 0
@@ -233,19 +234,24 @@
 					i=s.options.length
 					n = se.indexOf("!",0)+1
 					if(n == 0)return
-					while(l>n){
+						Matrix1 = 1
+						Matrix2 = -1
+					while(n<l){
 						e = se.indexOf("\n#",n)
 						if(e == -1)return
-								pn = se.substring(n,e-1)
+						
+						pn = se.substring(n,e+Matrix1)
 						o = se.indexOf("!",e)
 						if(o == -1)return
-						pa = se.substring(e+1,o-2)
-						if(pn != "Palette"){
+						pa = se.substring(e+1,o+Matrix2)
+						if (pn != "Palette"){
 						if(i >= 0)s.options[i] = new Option(pn)
-								Palettes[i] = pa
+						
+						Palettes[i] = pa
 						i++
 						}else{document.paintbbs.setColors(pa)}
-								n=o+1
+						
+						n=o+1
 					}
 					break
 				case 1:
@@ -254,7 +260,7 @@
 					e = se.indexOf("\n#",n)
 					o = se.indexOf("!",e)
 						if(e >= 0){
-							pa = se.substring(e+1,o-2)
+							pa = se.substring(e+1,o-1)
 						}
 					document.paintbbs.setColors(pa)
 				}
@@ -414,6 +420,8 @@
 					GetPalette();
 				}
 			}
+
+
 			//-->
 			</script>
 			<!--(========== 動的パレットスクリプト ここまで ==========)-->
