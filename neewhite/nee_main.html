@@ -195,6 +195,16 @@
 							<!--{def oya/skipres}--><?php echo "\n"; ?>
 							レス{$oya/skipres}件省略。すべて見るには返信ボタンをクリックしてください。
 							<!--{/def}--><?php echo "\n"; ?>
+							<!--{def sharebutton}--><?php echo "\n"; ?>
+							<span class="share_button">
+									<script>
+										(function(){
+											var url = encodeURIComponent('{$rooturl}{$self}?res={$oya/no}'); //ページURL。一応エンコード
+											var title = encodeURIComponent('[{$oya/no}] {$oya/sub} by {$oya/name} - {$title}'); //ページタイトル。同上。
+										document.write( '<a target="_blank" href="https://twitter.com/intent/tweet?&text=' + title + '&url=' + url + '"><span class="icon-twitter button"><i class="fab fa-twitter"></i> tweet</span></a> <a target="_blank" class="fb btn" href="http://www.facebook.com/share.php?u=' + url + '"><span class="icon-facebook2 button"><i class="fab fa-facebook-square"></i> share</span></a>' );})();
+									</script>
+								</span>
+								<!--{/def}--><?php echo "\n"; ?>
 							<!--{def notres}--><span class="button"><a href="{$self}?res={$oya/no}"><i class="fas fa-reply-all"></i> 返信</a></span><!--{/def}--><?php echo "\n"; ?>
 							<!--{/ndef}--><?php echo "\n"; ?>
 							<!--{def resform}--><?php echo "\n"; ?>
