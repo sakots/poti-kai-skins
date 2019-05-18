@@ -109,7 +109,7 @@
 			//	e = appVer.indexOf(";",s);
 			//	version = eval(parseInt(appVer.substring(s,e)));
 			//}
-				)-->
+			)-->
 			function setPalette(){
 				d = document
 				d.paintbbs.setColors(Palettes[d.Palette.select.selectedIndex])
@@ -180,9 +180,9 @@
 				s = d.select
 				m = d.m_m.selectedIndex
 				t = d.setr
-				t.value = "!Palette\n"+String(document.paintbbs.getColors())
 				switch(m){
 				case 0:case 2:default:
+				t.value = ""
 					n=0;c=0
 					while(p>n){
 						if(s.options[n] != null){ t.value = t.value + "\n!"+ s.options[n].text +"\n" + Palettes[n];c++}
@@ -190,9 +190,10 @@
 					}
 					alert ("パレット数："+c+"\nパレットマトリクスを取得しました");break
 				case 1:
+				t.value = "!Palette\n"+String(document.paintbbs.getColors())
 					alert("現在使用されているパレット情報を取得しました");break
 				}
-					t.value = t.value + "\n!Matrix"
+					t.value = t.value.trim() + "\n!Matrix"
 			}
 			function PalleteMatrixSet(){
 				m = document.Palette.m_m.selectedIndex
