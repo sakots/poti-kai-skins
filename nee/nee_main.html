@@ -8,8 +8,27 @@
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
 		<script type="text/javascript" src="loadcookie.js"></script>
-		<?php echo "\n"; include('meta.php'); echo "\n"; ?>
 		<title>{$title}</title>
+		<!--{def notres}--><?php echo "\n"; ?>
+		<?php echo "\n"; include('meta.php'); echo "\n"; ?>
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="">
+		<meta property="og:site_name" content="">
+		<meta property="og:title" content="{$title}">
+		<meta property="og:type" content="article">
+		<meta property="og:description" content="">
+		<meta property="og:image" content="">
+		<!--{/def}--><?php echo "\n"; ?>
+		<!--{def resno}--><!--{each oya}--><?php echo "\n"; ?>
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="">
+		<meta property="og:site_name" content="">
+		<meta property="og:title" content="[{$oya/no}] {$oya/sub} by {$oya/name} - {$title}">
+		<meta property="og:type" content="article">
+		<meta property="og:description" content="">
+		<meta property="og:url" content="{$rooturl}{$self}?res={$oya/no}">
+		<!--{def oya/src}--><meta property="og:image" content="{$rooturl}{$oya/imgsrc}"><!--{/def}--><?php echo "\n"; ?>
+		<!--{/each}--><!--{/def}--><?php echo "\n"; ?>
 	</head>
 	<body>
 		<header>
