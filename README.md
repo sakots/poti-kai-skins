@@ -5,6 +5,8 @@
 <a href="https://github.com/sakots/poti-kai/">POTI-board改</a>  
 
 ## <a name="history">履歴</a>
+#### (2019/05/23)
+- 微調整 (nee系)
 
 #### (2019/05/23)
 - パレットのgradationが動作しないの修正
