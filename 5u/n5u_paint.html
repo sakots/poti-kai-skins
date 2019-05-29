@@ -56,7 +56,7 @@
 			function setPalette(){
 				d = document
 				d.paintbbs.setColors(Palettes[d.Palette.select.selectedIndex])
-				if(! d.grad.view.checked){return}
+				if(! d.Palette.view.checked){return}
 				GetPalette();
 			}
 			function PaletteSave(){
@@ -226,8 +226,8 @@
 				return 128>c?"#FFFFFF":"#000000";
 			}
 			function Chenge_(){
-				var st = document.grad.pst.value
-				var ed = document.grad.ped.value
+				var st = document.Palette.pst.value
+				var ed = document.Palette.ped.value
 				
 				if(isNaN(parseInt("0x" + st)))return
 				if(isNaN(parseInt("0x" + ed)))return
@@ -235,8 +235,8 @@
 			}
 			function ChengeGrad(){
 				var d =document
-				var st = d.grad.pst.value
-				var ed = d.grad.ped.value
+				var st = d.Palette.pst.value
+				var ed = d.Palette.ped.value
 				Chenge_()
 				var degi_R = parseInt("0x" + st.substr(0,2))
 				var degi_G = parseInt("0x" + st.substr(2,2))
@@ -291,16 +291,16 @@
 				p = String(d.paintbbs.getColors());
 				if(p == "null" || p == ""){return};
 				ps = p.split("\n");
-				st = d.grad.p_st.selectedIndex
-				ed = d.grad.p_ed.selectedIndex
-				d.grad.pst.value = ps[st].substr(1.6)
-				d.grad.ped.value = ps[ed].substr(1.6)
+				st = d.Palette.p_st.selectedIndex
+				ed = d.Palette.p_ed.selectedIndex
+				d.Palette.pst.value = ps[st].substr(1.6)
+				d.Palette.ped.value = ps[ed].substr(1.6)
 				GradSelC()
 				GradView(ps[st],ps[ed])
 				PaletteListSetColor()
 			}
 			function GradSelC(){
-				if(! d.grad.view.checked)return
+				if(! d.Palette.view.checked)return
 				d = document.grad
 				l = ps.length
 				pe=""
@@ -326,7 +326,7 @@
 			}
 			function GradView(st,ed){
 				d = document
-				if(! d.grad.view.checked)return
+				if(! d.Palette.view.checked)return
 			<!--(
 				//	html = "<TABLE BGCOLOR=white cellspacing=0 cellpadding=0><TR><TD colspan=2><TT><font color=#FF6699><B>GRADATION</B></TT></TD></TR><TR><TD><TT><font color=#FF6699>START </TT></TD><TD><FONT COLOR="+st+" SIZE=4>■</FONT></TD></TR><TR><TD><font color=#FF6699><TT>END </TT></TD><TD><FONT COLOR="+ed+" SIZE=4>■</FONT></TD></TR></TABLE>";
 			//	if(d.layers) {
@@ -356,10 +356,10 @@
 				}else{
 					l = d.all("psft").style
 				}
-				if(! d.grad.view.checked){
+				if(! d.Palette.view.checked){
 					l.visibility = "hidden"
 				}
-				if(d.grad.view.checked){
+				if(d.Palette.view.checked){
 					l.visibility = "visible";
 					GetPalette();
 				}
@@ -382,13 +382,6 @@
 						<param name="compress_level" value="{$compress_level}">
 						<param name="undo" value="{$undo}">
 						<param name="undo_in_mg" value="{$undo_in_mg}">
-						<param name="color_text" value="#555555">
-						<param name="color_bk" value="#FFFFFF">
-						<param name="color_bk2" value="#FFCCCC">
-						<param name="color_icon" value="#FFFFFF">
-						<param name="color_iconselect" value="#FFCCCC">
-						<param name="color_bar" value="#555555">
-						<param name="color_frame" value="#CC0000">
 						<param name="url_save" value="picpost.php">
 						<param name="url_exit" value="{$self}?mode={$mode}&amp;stime={$stime}">
 						<!--{def imgfile}--><param name="image_canvas" value="{$imgfile}"><!--{/def}--><?php echo "\n"; ?>
@@ -398,11 +391,6 @@
 						<param name="thumbnail_width" value="100%">
 						<param name="thumbnail_height" value="100%">
 						<param name="tool_advance" value="true">
-						<param name="tool_color_button" value="#FFCCCC">
-						<param name="tool_color_button2" value="#FFCCCC">
-						<param name="tool_color_text" value="#555555">
-						<param name="tool_color_bar" value="#FFCCCC">
-						<param name="tool_color_frame" value="#CC0000">
 						<!--{def cpal}--><!--{each cpal}--><?php echo "\n"; ?>
 						<param name="color_{$cpal/no}" value="#{$cpal/pal}">
 						<!--{/each}--><!--{/def}--><?php echo "\n"; ?>
@@ -423,69 +411,65 @@
 								<!--{def dynp}--><!--{each dynp}--><?php echo "\n"; ?>
 								<option>{$dynp}</option>
 								<!--{/each}--><!--{/def}--><?php echo "\n"; ?>
-							</select><br>
-							<input class="button" type="button" value="一時保存" onclick="PaletteSave()"><br>
-							<input class="button" type="button" value="作成" onclick="PaletteNew()">
-							<input class="button" type="button" value="変更" onclick="PaletteRenew()">
-							<input class="button" type="button" value="削除" onclick="PaletteDel()"><br>
-							<input class="button" type="button" value="明＋" onclick="P_Effect(10)">
-							<input class="button" type="button" value="明－" onclick="P_Effect(-10)">
-							<input class="button" type="button" value="反転" onclick="P_Effect(255)">
+							</select>
+							<input class="button" type="button" value="一時保存" OnClick="PaletteSave()"><br>
+							<input class="button" type="button" value="作成" OnClick="PaletteNew()">
+							<input class="button" type="button" value="変更" OnClick="PaletteRenew()">
+							<input class="button" type="button" value="削除" OnClick="PaletteDel()"><br>
+							<input class="button" type="button" value="明＋" OnClick="P_Effect(10)">
+							<input class="button" type="button" value="明－" OnClick="P_Effect(-10)">
+							<input class="button" type="button" value="反転" OnClick="P_Effect(255)">
 						</fieldset>
 						<fieldset>
 							<legend>MATRIX</legend>
-							<form>
 							<select class="form" name="m_m">
 								<option value="0">全体</option>
 								<option value="1">現在</option>
 								<option value="2">追加</option>
 							</select>
-							<input type="button" class="button" name="m_g" value="GET" onclick="PaletteMatrixGet()">
-							<input type="button" class="button" name="m_h" value="SET" onclick="PalleteMatrixSet()">
-							<input type="button" class="button" name="1" value=" ? " onclick="PalleteMatrixHelp()"><br>
+							<input type="button" class="button" name="m_g" value="GET" OnClick="PaletteMatrixGet()">
+							<input type="button" class="button" name="m_h" value="SET" OnClick="PalleteMatrixSet()">
+							<input type="button" class="button" name="1" value=" ? " OnClick="PalleteMatrixHelp()"><br>
 							<textarea class="form" name="setr" rows="1" cols="13" onmouseover="this.select()"></textarea>
-							</form>
 						</fieldset>
 						<fieldset>
 							<legend>GRADATION</legend>
-							<form name="grad">
-								<input type="checkbox" name="view" onclick="showHideLayer()">
-								<input type="button" class="button" value=" OK " onclick="ChengeGrad()"><br>
-								<select class="form" name="p_st" onchange="GetPalette()">
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-									<option>5</option>
-									<option>6</option>
-									<option>7</option>
-									<option>8</option>
-									<option>9</option>
-									<option>10</option>
-									<option>11</option>
-									<option>12</option>
-									<option>13</option>
-									<option>14</option>
-								</select>
-								<input class="form "type="text" name="pst" size="8" onkeypress="Chenge_()" onchange="Chenge_()"><br>
-								<select class="form" name="p_ed" onchange="GetPalette()">
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-									<option>5</option>
-									<option>6</option>
-									<option>7</option>
-									<option>8</option>
-									<option>9</option>
-									<option>10</option>
-									<option>11</option>
-									<option selected>12</option>
-									<option>13</option>
-									<option>14</option>
-								</select>
-								<input class="form" type="text" name="ped" size="8" onkeypress="Chenge_()" onchange="Chenge_()"><div id="psft" style="position:absolute;width:100px;height:30px;z-index:1;left:5px;top:10px;"></div>
-							</form>
+							<input type="checkbox" name="view" OnClick="showHideLayer()">
+							<input type="button" class="button" value=" OK " OnClick="ChengeGrad()"><br>
+							<select class="form" name="p_st" onChange="GetPalette()">
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+								<option>6</option>
+								<option>7</option>
+								<option>8</option>
+								<option>9</option>
+								<option>10</option>
+								<option>11</option>
+								<option>12</option>
+								<option>13</option>
+								<option>14</option>
+							</select>
+							<input class="form "type="text" name="pst" size="8" onKeyPress="Chenge_()" onChange="Chenge_()"><br>
+							<select class="form" name="p_ed" onChange="GetPalette()">
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+								<option>6</option>
+								<option>7</option>
+								<option>8</option>
+								<option>9</option>
+								<option>10</option>
+								<option>11</option>
+								<option selected>12</option>
+								<option>13</option>
+								<option>14</option>
+							</select>
+							<input class="form" type="text" name="ped" size="8" onKeyPress="Chenge_()" onChange="Chenge_()"><div id="psft" style="position:absolute;width:100px;height:30px;z-index:1;left:5px;top:10px;"></div>
 						</fieldset>
 						<p class="c"><a href="http://wondercatstudio.com/" target="_blank" title="WonderCatStudio">DynamicPalette &copy;NoraNeko</a></p>
 					</form>

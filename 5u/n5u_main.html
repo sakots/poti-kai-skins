@@ -3,10 +3,29 @@
 <html lang="ja">
 	<head>
 		<meta charset="{$charset}">
-		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<link rel="stylesheet" href="n5u.css" type="text/css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
 		<script type="text/javascript" src="loadcookie.js"></script>
+		<!--{def notres}--><?php echo "\n"; ?>
 		<?php echo "\n"; include('meta.php'); echo "\n"; ?>
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="">
+		<meta property="og:site_name" content="">
+		<meta property="og:title" content="{$title}">
+		<meta property="og:type" content="article">
+		<meta property="og:description" content="">
+		<meta property="og:image" content="">
+		<!--{/def}--><?php echo "\n"; ?>
+		<!--{def resno}--><!--{each oya}--><?php echo "\n"; ?>
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="">
+		<meta property="og:site_name" content="">
+		<meta property="og:title" content="[{$oya/no}] {$oya/sub} by {$oya/name} - {$title}">
+		<meta property="og:type" content="article">
+		<meta property="og:description" content="">
+		<meta property="og:url" content="{$rooturl}{$self}?res={$oya/no}">
+		<!--{def oya/src}--><meta property="og:image" content="{$rooturl}{$oya/imgsrc}"><!--{/def}--><?php echo "\n"; ?>
+		<!--{/each}--><!--{/def}--><?php echo "\n"; ?>
 		<title>{$title}</title>
 	</head>
 	<body>
@@ -22,7 +41,7 @@
 					[<a href="{$self}?mode=admin">管理</a>]
 					[<a href="{$self}?mode=catalog">カタログ</a>]
 					[<a href="{$self}?mode=piccom<!--{def resno}-->&amp;resto={$resno}<!--{/def}-->">投稿途中の絵</a>]
-				</p>:
+				</p>
 				<!--{def resno}--><?php echo "\n"; ?>
 				<p class="resm">レス送信モード</p>
 				<!--{/def}--><?php echo "\n"; ?>
@@ -66,20 +85,20 @@
 						<table summary="投稿フォーム">
 							<tr>
 								<td>おなまえ{$usename}</td>
-								<td><input class="form" type="text" name="name" size="28" value="" autocomplete="username"></td>
+								<td><input class="form" type="text" name="name" size="28" value=""></td>
 							</tr>
 							<tr>
 								<td>URL</td>
-								<td><input class="form" type="text" name="url" size="28" autocomplete="url"></td>
+								<td><input class="form" type="text" name="url" size="28"></td>
 							</tr>
 							<tr>
 								<td>sage</td>
-								<td><input class="form" type="text" name="email" size="28" value="" autocomplete="email"></td>
-							</tr>:
+								<td><input class="form" type="text" name="email" size="28" value=""></td>
+							</tr>
 							<tr>
 								<td>題名{$usesub}</td>
 								<td>
-									<input class="form" type="text" name="sub" size="32" value="{$resub}" autocomplete="section-sub">
+									<input class="form" type="text" name="sub" size="32" value="{$resub}">
 									<input class="button" type="submit" value="WRITE">
 								</td>
 							</tr>
@@ -98,7 +117,7 @@
 							<!--{/def}--><?php echo "\n"; ?>
 							<tr>
 								<td>Pass</td>
-								<td><input class="form" type="password" name="pwd" size="8" value="" autocomplete="current-password"><small>記事の削除に必要</small></td>
+								<td><input class="form" type="password" name="pwd" size="8" value=""><small>記事の削除に必要</small></td>
 							</tr>
 						</table>
 						<ul>
@@ -125,7 +144,7 @@
 						<!--{def oya/src}--><?php echo "\n"; ?>
 						<figure>
 							<figcaption><a href="{$oya/src}" target="_blank">{$oya/srcname}</a> ({$oya/size} B) <!--{def oya/thumb}-->- サムネイル表示中 -<!--{/def}--><br><!--{def oya/painttime}-->PaintTime : {$oya/painttime}<!--{/def}--><!--{def oya/continue}-->  <a href="{$self}?mode=continue&amp;no={$oya/continue}">続きを描く</a><!--{/def}--></figcaption>
-							<a href="{$oya/src}" target="_blank" tabindex={$oya/tab}><img src="{$oya/imgsrc}" alt="{$oya/srcname}"></a>
+							<a href="{$oya/src}" target="_blank" tabindex="{$oya/tab}"><img src="{$oya/imgsrc}" alt="{$oya/srcname}"></a>
 						</figure>
 						<!--{/def}--><?php echo "\n"; ?>
 						<div class="res">
@@ -157,6 +176,16 @@
 							<!--{def oya/skipres}--><?php echo "\n"; ?>
 							レス{$oya/skipres}件省略。すべて見るには[返信]をクリックしてください。
 							<!--{/def}--><?php echo "\n"; ?>
+							<!--{def sharebutton}--><?php echo "\n"; ?>
+							<span class="share_button">
+								<script>
+									(function(){
+										var url = encodeURIComponent('{$rooturl}{$self}?res={$oya/no}'); //ページURL。一応エンコード
+										var title = encodeURIComponent('[{$oya/no}] {$oya/sub} by {$oya/name} - {$title}'); //ページタイトル。同上。
+									document.write( '<a target="_blank" href="https://twitter.com/intent/tweet?&text=' + title + '&url=' + url + '"><span class="icon-twitter button"><i class="fab fa-twitter"></i> tweet</span></a> <a target="_blank" class="fb btn" href="http://www.facebook.com/share.php?u=' + url + '"><span class="icon-facebook2 button"><i class="fab fa-facebook-square"></i> share</span></a>' );})();
+								</script>
+							</span>
+							<!--{/def}--><?php echo "\n"; ?>
 							<!--{def notres}-->[<a href="{$self}?res={$oya/no}">返信</a>]<!--{/def}--><?php echo "\n"; ?>
 							<!--{/ndef}--><?php echo "\n"; ?>
 							<!--{def resform}--><?php echo "\n"; ?>
@@ -164,11 +193,11 @@
 								<input type="hidden" name="mode" value="regist">
 								<input type="hidden" name="resto" value="{$oya/no}">
 								<input type="hidden" name="textonly" value="on">
-								<label>おなまえ{$usename} <input class="form" type="text" name="name" size="20" value="" autocomplete="username"></label>
-								<label>題名{$usesub} <input class="form" type="text" name="sub" size="18" value="{$oya/resub}" autocomplete="section-sub"></label><br>
-								<label>URL <input class="form "type="text" name="url" size="20" autocomplete="url"></label>
-								<label>sage <input class="form" type="text" name="email" size="8" autocomplete="email"></label>
-								<label>Pass <input class="form" type="password" name="pwd" size="8" value="" autocomplete="current-password"></label>
+								<label>おなまえ{$usename} <input class="form" type="text" name="name" size="20" value=""></label>
+								<label>題名{$usesub} <input class="form" type="text" name="sub" size="18" value="{$oya/resub}"></label><br>
+								<label>URL <input class="form" type="text" name="url" size="20"></label>
+								<label>sage <input class="form" type="text" name="email" size="8"></label>
+								<label>Pass <input class="form" type="password" name="pwd" size="8" value=""></label>
 								<input class="button" type="submit" value="返信">
 								<textarea class="form" name="com" cols="56" rows="3" wrap="soft"></textarea>
 							</form>
@@ -182,7 +211,7 @@
 				<form class="delf" action="{$self}" method="post">
 					<p>
 						No <input class="form" type="text" name="del[]" size="4" value="">
-						Pass <input class="form" type="password" name="pwd" size="6" value="" autocomplete="current-password">
+						Pass <input class="form" type="password" name="pwd" size="6" value="">
 						<select class="form" name="mode" tabindex="1">
 							<option value="edit" selected>編集</option>
 							<!--{def userdel}--><?php echo "\n"; ?>
@@ -194,9 +223,10 @@
 				</form>
 				<!--{def notres}--><?php echo "\n"; ?>
 				<p class="page">
-					<!--{ndef prev}--><span>[START]</span><!--{/ndef}--><!--{def prev}--><span>[<a href="{$prev}">BACK</a>]</span><!--{/def}--><?php echo "\n"; ?>
+					<!--{ndef prev}-->[START]<!--{/ndef}--><!--{def prev}-->[<a href="{$prev}">BACK</a>]<!--{/def}--><?php echo "\n"; ?>
 					{$paging}
-					<!--{def next}--><span>[<a href="{$next}">NEXT</a>]</span><!--{/def}--><!--{ndef next}-->[END]</span><!--{/ndef}--><?php echo "\n"; ?>
+					<!--{def next}-->[<a href="{$next}">NEXT</a>]<!--{/def}--><!--{ndef next}-->[END]<!--{/ndef}--><?php echo "\n"; ?>
+
 				</p>
 				<!--{/def}--><?php echo "\n"; ?>
 			</section>

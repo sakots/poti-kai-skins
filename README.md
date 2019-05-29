@@ -5,6 +5,10 @@
 <a href="https://github.com/sakots/poti-kai/">POTI-board改</a>  
 
 ## <a name="history">履歴</a>
+
+#### (2019/05/30)
+- 5u更新　シェアボタン追加など
+
 #### (2019/05/23)
 - 微調整 (nee系)
 
