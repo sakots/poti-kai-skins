@@ -93,9 +93,6 @@ em.thispage {
 	color: $moji;
 	font-style: normal;
 }
-.pn {
-
-}
 figure {
 	float: left;
 	margin-right: 8px;
@@ -143,6 +140,9 @@ ul {
 			color: $button_moji;
 		}
 	}
+}
+a .button i {
+	color: $button_moji;
 }
 .oyano, .oyaresno {
 	@extend button;
