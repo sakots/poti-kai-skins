@@ -119,6 +119,18 @@ ul {
   font-size: smaller;
 }
 
+ul.menu {
+  font-size: medium;
+}
+
+ul.menu li {
+  line-height: 200%;
+}
+
+ul.menu li a {
+  text-decoration: none;
+}
+
 .res section {
   display: table;
 }
@@ -153,10 +165,6 @@ ul {
 }
 
 .button a i {
-  color: #FFF;
-}
-
-a .button i {
   color: #FFF;
 }
 

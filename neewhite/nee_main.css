@@ -51,15 +51,11 @@ header {
   position: fixed;
   margin: 12px;
   top: 0px;
-  -webkit-box-shadow: 0px 2px 2px 0px;
-          box-shadow: 0px 2px 2px 0px;
 }
 
 main, footer {
   display: block;
   margin: 12px 12px 12px 340px;
-  -webkit-box-shadow: 0px 2px 2px 0px;
-          box-shadow: 0px 2px 2px 0px;
 }
 
 footer {
@@ -67,10 +63,8 @@ footer {
 }
 
 input, select, em.thispage, .se, textarea, button, .button, .oyano, .oyaresno {
-  border-style: solid;
-  border-width: 1px;
+  border-style: none;
   border-radius: 4px;
-  border-color: #000;
   padding: 4px;
   color: #000;
   background-color: #EEF;
@@ -125,6 +119,18 @@ ul {
   font-size: smaller;
 }
 
+ul.menu {
+  font-size: medium;
+}
+
+ul.menu li {
+  line-height: 200%;
+}
+
+ul.menu li a {
+  text-decoration: none;
+}
+
 .res section {
   display: table;
 }
@@ -159,10 +165,6 @@ ul {
 }
 
 .button a i {
-  color: #FFF;
-}
-
-a .button i {
   color: #FFF;
 }
 

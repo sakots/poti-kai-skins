@@ -2,7 +2,17 @@
 <html lang="ja">
 	<head>
 		<meta charset="{$charset}">
+	<!--{def paint_mode}-->
+	<!--{def pinchin}-->
 		<meta name="viewport" content="width=device-width,initial-scale=1">
+	<!--{/def}-->
+	<!--{ndef pinchin}-->
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+	<!--{/ndef}-->
+	<!--{/def}-->
+	<!--{ndef paint_mode}-->
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+	<!--{/ndef}-->
 		<link rel="stylesheet" href="neo.css" type="text/css">
 		<script src="neo.js" charset="UTF-8"></script>
 		<link rel="stylesheet" href="nee_main.css" type="text/css">
@@ -14,12 +24,12 @@
 			<h1>{$title}</h1>
 			<hr>
 			<section>
-				<p class="menu">
-					<a href="{$self2}"><i class="fas fa-star fa-fw fa-lg" title="トップ"></i></a>
-					<a href="{$home}" target="_top"><i class="fas fa-home fa-fw fa-lg" title="ホーム"></i></a>
-					<a href="{$self}?mode=newpost"><i class="fas fa-pen-square fa-fw fa-lg" title="投稿"></i></a>
-					<a href="{$self}?mode=admin"><i class="fas fa-cog fa-fw fa-lg" title="管理"></i></a>
-				</p>
+				<ul class="menu">
+					<li><a href="{$self2}"><i class="fas fa-star fa-fw fa-lg" title="トップ"></i>トップ</a></li>
+					<li><a href="{$home}" target="_top"><i class="fas fa-home fa-fw fa-lg" title="ホーム"></i>ホーム</a></li>
+					<li><a href="{$self}?mode=newpost"><i class="fas fa-pen-square fa-fw fa-lg" title="新規投稿"></i>新規投稿</a></li>
+					<li><a href="{$self}?mode=admin"><i class="fas fa-cog fa-fw fa-lg" title="管理モード"></i>管理モード</a></li>
+				</ul>
 			</section>
 			<hr>
 			<!--{def paint_mode}--><?php echo "\n"; ?>
@@ -386,24 +396,24 @@
 				if(! d.Palette.view.checked)return
 			<!--(
 				//	html = "<TABLE BGCOLOR=white cellspacing=0 cellpadding=0><TR><TD colspan=2><TT><font color=#FF6699><B>GRADATION</B></TT></TD></TR><TR><TD><TT><font color=#FF6699>START </TT></TD><TD><FONT COLOR="+st+" SIZE=4>■</FONT></TD></TR><TR><TD><font color=#FF6699><TT>END </TT></TD><TD><FONT COLOR="+ed+" SIZE=4>■</FONT></TD></TR></TABLE>";
-			//	if(d.layers) {
-			//		with(d.layers["psft"]){
-			//			left = window.innerWidth - 120
-			//			top = window.pageYOffset+5
-			//			d = document
-			//			d.open()
-			//			d.write(html)
-			//			d.close();
-			//		}
-			//	} else if(d.all){
+			//if(d.layers) {
+			//with(d.layers["psft"]){
+			//left = window.innerWidth - 120
+			//top = window.pageYOffset+5
+			//d = document
+			//d.open()
+			//d.write(html)
+			//d.close();
+			//}
+			//} else if(d.all){
+			//if(d.all){
+			//with(d.all("psft")){
+			//style.left = d.body.offsetWidth - 120
+			//style.top = d.body.scrollTop+5
+			//innerHTML = html
+			//}
+			//}
 			)-->
-					if(d.all){
-					with(d.all("psft")){
-						style.left = d.body.offsetWidth - 120
-						style.top = d.body.scrollTop+5
-			//			innerHTML = html
-					}
-				}
 			}
 			function showHideLayer() { //v3.0
 				d = document
