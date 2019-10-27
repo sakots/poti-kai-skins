@@ -1,0 +1,363 @@
+@charset "UTF-8";
+/*! =====このcssファイルはsassから生成されています。===== */
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  background-color: #EEE;
+  color: #000;
+  font-family: sans-serif;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+a:link {
+  color: #C00;
+}
+
+a:visited {
+  color: #666;
+}
+
+a:active {
+  color: #C00;
+}
+
+a:hover {
+  color: #C00;
+}
+
+a i {
+  color: #C00;
+}
+
+hr {
+  background-color: #EEE;
+  border-style: solid;
+  border-width: 1px 1px 0px 1px;
+  border-color: #C00;
+  margin: 1ex auto 0px;
+}
+
+header, main, footer, footer {
+  background-color: #EEE;
+}
+
+header {
+  width: 300px;
+  position: fixed;
+  top: 0px;
+  padding: 16px 0px 0px 16px;
+  border-right: 1px #C00 solid;
+}
+
+main, footer {
+  display: block;
+  margin: 0px 0px 0px 316px;
+  padding: 8px 16px 0px 0px;
+  border-left: 1px #C00 solid;
+}
+
+footer {
+  text-align: right;
+}
+
+form, .page {
+  margin-top: 8px;
+}
+
+h2 {
+  padding: 8px 0px 0px 8px;
+}
+
+.thread > section {
+  padding: 8px 0px 0px 8px;
+}
+
+input, select, em.thispage, .se, textarea, button, .button, .oyano, .oyaresno {
+  border-style: none;
+  border-radius: 4px;
+  padding: 4px;
+  color: #000;
+  background-color: #FFF;
+}
+
+select {
+  padding: 2px;
+}
+
+input[name="picw"], select[name="picw"], em.thispage[name="picw"], .se[name="picw"], input[name="pich"], select[name="pich"], em.thispage[name="pich"], .se[name="pich"], input[name="del[]"], select[name="del[]"], em.thispage[name="del[]"], .se[name="del[]"], input[name="pwd"], select[name="pwd"], em.thispage[name="pwd"], .se[name="pwd"] {
+  width: 3em;
+}
+
+input[value="お絵かき"], select[value="お絵かき"], em.thispage[value="お絵かき"], .se[value="お絵かき"], .button {
+  background-color: #C00;
+  color: #FFF;
+}
+
+input[name="upfile"], select[name="upfile"], em.thispage[name="upfile"], .se[name="upfile"] {
+  width: 10em;
+}
+
+em.thispage {
+  background-color: #666;
+  color: #000;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.se {
+  background-color: #666;
+  color: #000;
+  font-style: normal;
+}
+
+figure {
+  float: left;
+  margin-right: 8px;
+  margin-bottom: 1ex;
+}
+
+figure img {
+  max-width: 100%;
+}
+
+figcaption {
+  font-size: smaller;
+}
+
+ul {
+  list-style-type: none;
+  font-size: smaller;
+}
+
+ul.menu {
+  font-size: medium;
+}
+
+ul.menu li {
+  line-height: 250%;
+}
+
+ul.menu li a {
+  text-decoration: none;
+}
+
+.res section {
+  display: table;
+}
+
+.res h3, .res h4 {
+  padding-top: 8px;
+  font-size: 100%;
+  margin-bottom: 1ex;
+}
+
+.res figure {
+  float: none;
+}
+
+p.resm {
+  margin-top: 8px;
+}
+
+.resma {
+  color: #666;
+}
+
+.thfoot {
+  clear: left;
+  text-align: right;
+}
+
+.thfoot span {
+  margin-top: 8px;
+}
+
+.button {
+  padding-left: 1ex;
+  padding-right: 1ex;
+  display: inline-block;
+}
+
+.button a {
+  text-decoration: none;
+  color: #FFF;
+}
+
+.button a i {
+  color: #FFF;
+}
+
+.share_button a i {
+  color: #FFF;
+}
+
+.oyano, .oyaresno {
+  background-color: #C00;
+  color: #FFF;
+  display: inline-block;
+  text-align: center;
+  min-width: 2em;
+}
+
+.oekaki {
+  font-size: smaller;
+}
+
+#appstage {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#appstage .app {
+  margin: 0px 4px;
+}
+
+.NEO .color_bk {
+  color: #EEE;
+}
+
+.NEO .color_bk2 {
+  color: #C00;
+}
+
+.NEO .color_tool_icon {
+  color: #EEE;
+}
+
+.NEO .color_icon {
+  color: #DDD;
+}
+
+.NEO .color_iconselect {
+  color: #CCC;
+}
+
+.NEO .color_text {
+  color: #C00;
+}
+
+.NEO .color_bar {
+  color: #DDD;
+}
+
+.NEO .tool_color_button {
+  color: #DDD;
+}
+
+.NEO .tool_color_button2 {
+  color: #CCC;
+}
+
+.NEO .tool_color_text {
+  color: #FFF;
+}
+
+.NEO .tool_color_bar {
+  color: #FCC;
+}
+
+.NEO .tool_color_frame {
+  color: #C66;
+}
+
+.palette {
+  width: 180px;
+}
+
+.palette fieldset {
+  text-align: center;
+}
+
+.c {
+  text-align: center;
+}
+
+#catalog {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+#catalog div {
+  width: 166px;
+  text-align: center;
+  overflow: hidden;
+}
+
+#catalog p {
+  margin: 0.5ex auto;
+}
+
+#catalog img {
+  width: 150px;
+  height: 150px;
+}
+
+.delfo {
+  font-size: smaller;
+}
+
+.delfo th, .delfo td {
+  border: 1px solid #EEE;
+}
+
+@media screen and (max-width: 1024px) {
+  .res {
+    clear: left;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    width: auto;
+    position: relative;
+    margin: 12px;
+    border-right: none;
+  }
+  main, footer {
+    display: block;
+    margin: 12px;
+    border-left: none;
+  }
+  #paintmode header {
+    width: 300px;
+    position: relative;
+    margin: 12px;
+  }
+  #paintmode main, #paintmode footer {
+    display: block;
+    margin: 12px;
+  }
+  #paintmode footer {
+    text-align: right;
+    margin: 12px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  footer {
+    text-align: right;
+    margin: 12px;
+  }
+  #appstage {
+    display: block;
+  }
+}
+/*# sourceMappingURL=deck_main.css.map */
