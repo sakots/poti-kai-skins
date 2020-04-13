@@ -1,13 +1,13 @@
 <?php
 /*
-  * Template - deck - v1.00 lot.191026  by sakots  >> https://sakots.red/poti/
+  * Template - deck - v2.00 lot.200413  by sakots  >> https://sakots.red/poti/
   *
-  * potiboard.php(v1.40～)のTemplate設定ファイルです。
+  * potiboard.php(v1.55～)のTemplate設定ファイルです。
   *
 */
 
 //テンプレートのバージョン
-define('TEMPLATE_VER', "v1.00 lot.191027");
+define('TEMPLATE_VER', "v2.00 lot.200413");
 
 /* ---------- ADD:2018/04/20 ---------- */
 
@@ -48,7 +48,7 @@ define('MSG033', "削除に失敗しました[failed in deletion.]<br>ユーザ�
 define('MSG034', "アップロードに失敗しました[It failed in up-loading.]<br>規定の画像容量をオーバーしています[size over is picture file.]");
 define('MSG035', "何か日本語で書いてください[Comment should have at least some Japanese characters.]");
 define('MSG036', "本文にそのURLを書く事はできません。[This URL can not be used in text.]");
-define('MSG037', "予備");
+define('MSG037', "その名前は使えません[This name can not be used.]");
 define('MSG038', "そのタグは使えません。[This tags can not be used.]");
 define('MSG039', "予備");
 define('MSG040', "予備");
