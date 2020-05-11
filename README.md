@@ -2,9 +2,12 @@
 お絵かき掲示板スクリプト「POTI-board改」用のスキンを制作しております。
 
 <a href="https://github.com/funige/neo/">PaintBBS NEO</a>  
-<a href="https://github.com/sakots/poti-kai/">POTI-board改</a>  
+<a href="https://poti-k.info/">POTI-board改公式</a>  
 
 ## <a name="history">履歴</a>
+
+#### (2020/05/11)
+- 公式サイト作成につきリンク先変更
 
 #### (2019/10/26)
 - nee更新 ボタンの横に文字追加
